@@ -1,137 +1,159 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Удостоверение личности</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background-color: #ffffff;
-    color: #000;
-  }
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    height: 56px;
-    padding: 0 16px;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.1);
-  }
-  .header-title {
-    font-size: 18px;
-    font-weight: 500;
-  }
-  .header .back-icon {
-    position: absolute;
-    left: 16px;
-    width: 24px;
-    height: 24px;
-    color: #000;
-    cursor: pointer;
-  }
-  .tabs {
-    display: flex;
-    width: 100%;
-  }
-  .tab {
-    width: 50%;
-    text-align: center;
-    padding: 12px 0;
-    font-size: 16px;
-    font-weight: 500;
-  }
-  .tab.doc {
-    background-color: #f9f9f9;
-  }
-  .tab.rekvizit {
-    background-color: #e5e5e5;
-    color: #888888;
-  }
-  .content {
-    padding: 16px;
-  }
-  .card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    overflow: hidden;
-  }
-  .card img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  .bottom-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 0 16px 24px;
-  }
-  .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 0;
-    font-size: 16px;
-    font-weight: 500;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-  }
-  .btn svg {
-    margin-right: 8px;
-  }
-  .btn-present {
-    background: linear-gradient(to bottom, #0464E3, #0375ED);
-    color: #fff;
-  }
-  .btn-send {
-    background: #fff;
-    border: 1px solid #0360FA;
-    color: #0360FA;
-  }
-  .icon-qr, .icon-send {
-    width: 24px;
-    height: 24px;
-    fill: currentColor;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Удостоверение личности</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 16px 0 4px;
+    }
+
+    .back-icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 12px;
+      cursor: pointer;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      flex: 1;
+      text-align: center;
+      margin-right: 36px; /* чтобы центрировалось визуально */
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0 16px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .tab {
+      flex: 1;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+      background-color: #f9f9f9;
+    }
+
+    .tab:first-child {
+      background-color: #fafafa;
+      color: #000;
+    }
+
+    .tab:last-child {
+      background-color: #e5e5e5;
+      color: #777;
+    }
+
+    .image-section {
+      margin: 20px 0 100px;
+    }
+
+    .image-section img {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .button-section {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .primary-button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .secondary-button {
+      border: 1px solid #ccc;
+      background-color: #fff;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .icon-send {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+  </style>
 </head>
 <body>
-  <div class="header">
-    <svg class="back-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-      <line x1="19" y1="12" x2="5" y2="12"/>
-      <polyline points="12 19 5 12 12 5"/>
-    </svg>
-    <div class="header-title">Удостоверение личности</div>
-  </div>
-  <div class="tabs">
-    <div class="tab doc">Документ</div>
-    <div class="tab rekvizit">Реквизиты</div>
-  </div>
-  <div class="content">
-    <div class="card">
-      <img src="lal.jpg" alt="Документ">
+  <div class="container">
+    <div class="header">
+      <svg class="back-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+        <line x1="19" y1="12" x2="5" y2="12"/>
+        <polyline points="12 19 5 12 12 5"/>
+      </svg>
+      <div class="title">Удостоверение личности</div>
     </div>
-  </div>
-  <div class="bottom-buttons">
-    <button class="btn btn-present">
-      <svg class="icon-qr" viewBox="-32 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 224h192V32H0v192zM64 96h64v64H64V96zm192-64v192h192V32H256zm128 128h-64V96h64v64zM0 480h192V288H0v192zm64-128h64v64H64v-64zm352-64h32v128h-96v-32h-32v96h-64V288h96v32h64v-32zm0 160h32v32h-32v-32zm-64 0h32v32h-32v-32z"/>
-      </svg>
-      Предъявить документ
-    </button>
-    <button class="btn btn-send">
-      <svg class="icon-send" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1h-2z"/>
-        <path fill-rule="evenodd" d="M7.646.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 1.707V10.5a.5.5 0 0 1-1 0V1.707L5.354 3.854a.5.5 0 1 1-.708-.708l3-3z"/>
-      </svg>
-      Отправить документ
-    </button>
+
+    <div class="tabs">
+      <div class="tab">Документ</div>
+      <div class="tab">Реквизиты</div>
+    </div>
+
+    <div class="image-section">
+      <img src="lal.jpg" alt="Документ" />
+    </div>
+
+    <div class="button-section">
+      <button class="primary-button">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/qr-code.png" class="icon" />
+        Предъявить документ
+      </button>
+
+      <button class="secondary-button">
+        <svg class="icon-send" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1h-2z"/>
+          <path fill-rule="evenodd" d="M7.646.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 1.707V10.5a.5.5 0 0 1-1 0V1.707L5.354 3.854a.5.5 0 1 1-.708-.708l3-3z"/>
+        </svg>
+        Отправить документ
+      </button>
+    </div>
   </div>
 </body>
 </html>
